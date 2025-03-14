@@ -1,18 +1,40 @@
-<h1 class="animated fadeIn">
-    {{producto.nombre}}
-</h1>
-<div class="row animated fadeIn fast">
-    <div class="col-md-4">
-        <img [src]="producto.img" class="img-fluid" [alt]="producto.nombre">
-        <br>
-        <br>
+<div class="container mt-5">
+    <div *ngIf="loading" class="text-center">
+        <div class="spinner-border text-primary" role="status">
+            <span class="visually-hidden">Cargando...</span>
+        </div>
+    </div>
 
+    <div *ngIf="producto; else productoNoEncontrado" class="card mb-3">
+        <div class="row g-0">
+            <div class="col-md-6">
+                <img [src]="producto.img" class="img-fluid rounded-start" [alt]="producto.nombre"
+                    style="max-height: 500px; object-fit: cover;">
+            </div>
+            <div class="col-md-6">
+                <div class="card-body">
+                    <h1 class="card-title display-4 mb-4">{{ producto.nombre }}</h1>
+                    <div class="d-flex align-items-center mb-4">
+                        <span class="h3 text-primary me-2">${{ producto.precio | number }}</span>
+                        <span class="badge bg-success">Disponible</span>
+                    </div>
+
+                    <hr class="my-4">
+
+                    <div class="d-grid gap-2 d-md-block">
+                        Futuras acciones
+                    </div>
+                </div>
+            </div>
+        </div>
     </div>
-    <div class="col-md-8">
-        <h3>{{producto.nombre}}</h3>
-        <hr>
-        <p>
-            Precio: {{producto.precio }}
-        </p>
-    </div>
+
+    <ng-template #productoNoEncontrado>
+        <div class="alert alert-danger mt-5" role="alert" *ngIf="!loading">
+            <h4 class="alert-heading">Producto no encontrado</h4>
+            <p>El producto que estás buscando no existe o ha sido removido.</p>
+            <hr>
+            <a routerLink="/" class="btn btn-outline-danger">Volver al inicio</a>
+        </div>
+    </ng-template>
 </div>

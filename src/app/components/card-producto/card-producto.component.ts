@@ -9,16 +9,23 @@ import { Producto } from '../../models/producto.models';
   styleUrl: './card-producto.component.css'
 })
 export class CardProductoComponent implements OnInit {
-  producto: Producto = new Producto();
-  constructor(private route: ActivatedRoute, private _productosService: ProductosService) {
-    this.route.params.subscribe(params => {
-      this.producto = this._productosService.getProducto(parseInt(params['id']) ?? 0);
-    });
-  }
+  producto: Producto | undefined;
+  loading = true;
+  constructor(
+    private route: ActivatedRoute,
+    private productosService: ProductosService
+  ) { }
+
   ngOnInit(): void {
-    const id = this.route.snapshot.paramMap.get('id') || '0';
-    this.producto = this._productosService.getProducto(parseInt(id));
-    console.log(this.producto);
+    this.route.paramMap.subscribe(params => {
+      const id = parseInt(params.get('id') || '0', 10);
+      this.producto = this.productosService.getProducto(id);
+      this.loading = false;
+
+      if (!this.producto) {
+        console.error('Producto no encontrado');
+      }
+    });
   }
 
 }
