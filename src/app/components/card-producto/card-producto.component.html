@@ -1,11 +1,5 @@
-<div class="container mt-5">
-    <div *ngIf="loading" class="text-center">
-        <div class="spinner-border text-primary" role="status">
-            <span class="visually-hidden">Cargando...</span>
-        </div>
-    </div>
-
-    <div *ngIf="producto; else productoNoEncontrado" class="card mb-3">
+<div class="container mt-5" *ngIf="producto">
+    <div class="card mb-3">
         <div class="row g-0">
             <div class="col-md-6">
                 <img [src]="producto.img" class="img-fluid rounded-start" [alt]="producto.nombre"
@@ -22,19 +16,11 @@
                     <hr class="my-4">
 
                     <div class="d-grid gap-2 d-md-block">
-                        Futuras acciones
+                        <!-- back -->
+                        <button class="btn btn-outline-secondary" (click)="back()">Regresar</button>
                     </div>
                 </div>
             </div>
         </div>
     </div>
-
-    <ng-template #productoNoEncontrado>
-        <div class="alert alert-danger mt-5" role="alert" *ngIf="!loading">
-            <h4 class="alert-heading">Producto no encontrado</h4>
-            <p>El producto que estás buscando no existe o ha sido removido.</p>
-            <hr>
-            <a routerLink="/" class="btn btn-outline-danger">Volver al inicio</a>
-        </div>
-    </ng-template>
 </div>

@@ -1,4 +1,5 @@
 import { Component, OnInit } from '@angular/core';
+import { Location } from '@angular/common';
 import { ActivatedRoute } from '@angular/router';
 import { ProductosService } from '../../services/productos.service';
 import { Producto } from '../../models/producto.models';
@@ -9,23 +10,18 @@ import { Producto } from '../../models/producto.models';
   styleUrl: './card-producto.component.css'
 })
 export class CardProductoComponent implements OnInit {
-  producto: Producto | undefined;
-  loading = true;
+  producto!: Producto;
   constructor(
     private route: ActivatedRoute,
-    private productosService: ProductosService
+    private productosService: ProductosService,
+    private location: Location
   ) { }
 
   ngOnInit(): void {
-    this.route.paramMap.subscribe(params => {
-      const id = parseInt(params.get('id') || '0', 10);
-      this.producto = this.productosService.getProducto(id);
-      this.loading = false;
-
-      if (!this.producto) {
-        console.error('Producto no encontrado');
-      }
-    });
+    const id = Number(this.route.snapshot.paramMap.get('id'));
+    this.producto = this.productosService.getProducto(id);
   }
-
+  back(): void {
+    this.location.back();
+  }
 }

@@ -1,1 +1,14 @@
-<p>card-producto-tarjeta works!</p>
+<div class="card h-100 shadow-sm">
+    <img [src]="producto.img" class="card-img-top" [alt]="producto.nombre" style="height: 200px; object-fit: cover;">
+
+    <div class="card-body">
+        <h5 class="card-title">{{ producto.nombre }}</h5>
+        <p class="card-text text-primary h4">${{ producto.precio | number }}</p>
+    </div>
+
+    <div class="card-footer bg-transparent">
+        <a [routerLink]="['/producto', indice]" class="btn btn-outline-primary w-100">
+            Ver Detalles
+        </a>
+    </div>
+</div>
