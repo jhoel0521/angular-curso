@@ -6,11 +6,11 @@ import { Producto } from '../models/producto.models';
 })
 export class ProductosService {
   private productos: Producto[] = [
-    new Producto("Audífonos", "assets/img/producto1.jpg", 100),
-    new Producto("Tenis", "assets/img/producto2.jpg", 200),
-    new Producto("Reloj", "assets/img/producto3.jpg", 300),
-    new Producto("Celulares", "assets/img/producto4.jpg", 400),
-    new Producto("Computadora", "assets/img/producto5.jpg", 500),
+    new Producto("Audífonos", "assets/img/productos/earphones.webp", 100),
+    new Producto("Tenis", "assets/img/productos/tennis.jpeg", 200),
+    new Producto("Reloj", "assets/img/productos/clock.jpeg", 300),
+    new Producto("Celulares", "assets/img/productos/phone.webp", 400),
+    new Producto("Computadora", "assets/img/productos/laptop.jpg", 500),
   ];
   constructor() { }
   getProductos(): Producto[] {
