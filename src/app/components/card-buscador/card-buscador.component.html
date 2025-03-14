@@ -1,1 +1,25 @@
-<p>card-buscador works!</p>
+<div class="container mt-5">
+    <h4 class="mb-4">Resultados de búsqueda para: "{{ termino }}"</h4>
+
+    <div *ngIf="productosEncontrados.length === 0" class="alert alert-warning">
+        No se encontraron productos con el término "{{ termino }}"
+    </div>
+
+    <div class="row row-cols-1 row-cols-md-3 row-cols-lg-4 g-4">
+        <div class="col" *ngFor="let producto of productosEncontrados; let i = index">
+            <div class="card h-100 shadow-sm">
+                <img [src]="producto.img" class="card-img-top" [alt]="producto.nombre"
+                    style="height: 200px; object-fit: cover;">
+                <div class="card-body">
+                    <h5 class="card-title">{{ producto.nombre }}</h5>
+                    <p class="card-text text-primary h4">${{ producto.precio | number }}</p>
+                </div>
+                <div class="card-footer bg-transparent">
+                    <a [routerLink]="['/producto', i]" class="btn btn-outline-primary w-100">
+                        Ver Detalles
+                    </a>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
