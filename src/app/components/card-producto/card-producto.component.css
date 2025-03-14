@@ -18,3 +18,9 @@
     font-size: 1rem;
     padding: 0.5em 0.75em;
 }
+img {
+    height: 250px;
+    object-fit: cover;
+    object-position: center;
+    width: 100%;
+}
