@@ -12,6 +12,7 @@ import { InicioComponent } from './pages/inicio/inicio.component';
 import { AboutComponent } from './pages/about/about.component';
 import { NavbarComponent } from './components/navbar/navbar.component';
 import { CardProductosComponentComponent } from './components/card-productos-component/card-productos-component.component';
+import { CardBuscadorComponent } from './components/card-buscador/card-buscador.component';
 
 @NgModule({
   declarations: [
@@ -24,7 +25,8 @@ import { CardProductosComponentComponent } from './components/card-productos-com
     InicioComponent,
     AboutComponent,
     NavbarComponent,
-    CardProductosComponentComponent
+    CardProductosComponentComponent,
+    CardBuscadorComponent
   ],
   imports: [
     BrowserModule,
