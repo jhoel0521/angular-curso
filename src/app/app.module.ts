@@ -13,6 +13,8 @@ import { AboutComponent } from './pages/about/about.component';
 import { NavbarComponent } from './components/navbar/navbar.component';
 import { CardProductosComponentComponent } from './components/card-productos-component/card-productos-component.component';
 import { CardBuscadorComponent } from './components/card-buscador/card-buscador.component';
+import { CardProductoComponent } from './components/card-producto/card-producto.component';
+import { CardProductoTarjetaComponent } from './components/card-producto-tarjeta/card-producto-tarjeta.component';
 
 @NgModule({
   declarations: [
@@ -26,7 +28,9 @@ import { CardBuscadorComponent } from './components/card-buscador/card-buscador.
     AboutComponent,
     NavbarComponent,
     CardProductosComponentComponent,
-    CardBuscadorComponent
+    CardBuscadorComponent,
+    CardProductoComponent,
+    CardProductoTarjetaComponent
   ],
   imports: [
     BrowserModule,
