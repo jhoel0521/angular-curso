@@ -6,16 +6,25 @@
     </button>
     <div class="collapse navbar-collapse" id="navbarNavDropdown">
         <ul class="navbar-nav">
+            <!-- Inicio -->
             <li class="nav-item">
                 <a class="nav-link" routerLink="/">
                     Inicio
                     <span *ngIf="esRutaActiva('/')" class="sr-only">(Actual)</span>
                 </a>
             </li>
+            <!-- Acerca de -->
             <li class="nav-item">
                 <a class="nav-link" routerLink="/acerca-de">
                     Acerca de
                     <span *ngIf="esRutaActiva('/acerca-de')" class="sr-only">(Actual)</span>
+                </a>
+            </li>
+            <!-- productos -->
+            <li class="nav-item">
+                <a class="nav-link" routerLink="/productos">
+                    Productos
+                    <span *ngIf="esRutaActiva('/productos')" class="sr-only">(Actual)</span>
                 </a>
             </li>
         </ul>
